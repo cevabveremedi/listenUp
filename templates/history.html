@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% set active_page = "history" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped" id="historytable" style="width: 100%; background-color: #3333;">
+        <thead>
+            <tr style="text-align: center;">
+                <th style="width: 17%;">Video</th>
+                <th style="width: 5%;">Points</th>
+                <th style="width: 30%;">Caption</th>
+                <th style="width: 30%;">Your Answer</th>
+                <th style="width: 18%;">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>
+                        <a href="{{ row['yturl'] }}" target=”_blank” id="channel">
+                            {% if row['point'] == 3 %}
+                                <span style="color: #00FFFF;">Minute Earth &#x2197;</span>
+                            {% elif row['point'] == 2 %}
+                                <span style="color: #088F8F;">Kurzgesagt &#x2197;</span>
+                            {% elif row['point'] == 1 %}
+                                <span style="color: #89CFF0;">Ted Ed &#x2197;</span>
+                            {% else %}
+                                <span style="color: #D2042D;">Wrong Answer &#x2197;</span>
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td style="text-align: center;">
+                        {% if row['point'] == 3 %}
+                            <span style="color: #00FFFF;">{{ row['point'] }}</span>
+                        {% elif row['point'] == 2 %}
+                            <span style="color: #088F8F;">{{ row['point'] }}</span>
+                        {% elif row['point'] == 1 %}
+                            <span style="color: #89CFF0;">{{ row['point'] }}</span>
+                        {% else %}
+                            <span style="color: #D2042D;">{{ row['point'] }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row['point'] == 3 %}
+                            <span style="color: #00FFFF;" title="{{ row['caption'] }}">"{{ row['caption'] }}"</span>
+                        {% elif row['point'] == 2 %}
+                            <span style="color: #088F8F;" title="{{ row['caption'] }}">"{{ row['caption'] }}"</span>
+                        {% elif row['point'] == 1 %}
+                            <span style="color: #89CFF0;" title="{{ row['caption'] }}">"{{ row['caption'] }}"</span>
+                        {% else %}
+                            <span style="color: #D2042D;" title="{{ row['caption'] }}">"{{ row['caption'] }}"</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row['point'] == 3 %}
+                            <span style="color: #00FFFF;" title="{{ row['answer'] }}">"{{ row['answer'] }}"</span>
+                        {% elif row['point'] == 2 %}
+                            <span style="color: #088F8F;" title="{{ row['answer'] }}">"{{ row['answer'] }}"</span>
+                        {% elif row['point'] == 1 %}
+                            <span style="color: #89CFF0;" title="{{ row['answer'] }}">"{{ row['answer'] }}"</span>
+                        {% else %}
+                            <span style="color: #D2042D;" title="{{ row['answer'] }}">"{{ row['answer'] }}"</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if row['point'] == 3 %}
+                            <span style="color: #00FFFF;">{{ row['time'] }}</span>
+                        {% elif row['point'] == 2 %}
+                            <span style="color: #088F8F;">{{ row['time'] }}</span>
+                        {% elif row['point'] == 1 %}
+                            <span style="color: #89CFF0;">{{ row['time'] }}</span>
+                        {% else %}
+                            <span style="color: #D2042D;">{{ row['time'] }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('#historytable').DataTable({
+            columns: [
+                {searchable: false},
+                {searchable: false, orderable: false},
+                {orderable: false},
+                {orderable: false},
+                {searchable: false}
+            ]
+          });
+        });
+      </script>
+
+    <script>
+        /* TODO
+        var channel = document.getElementById('channel');
+        if (channel.innerHTML === "Wrong Answer") {
+            channel.style.color = "red";
+            alert("Here");
+        } else {
+            alert("why..")
+        }
+        */
+    </script>
+{% endblock %}

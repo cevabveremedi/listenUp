@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% set active_page = "leaderboard" %}
+
+{% block title %}
+    Leaderboard
+{% endblock %}
+
+{% block main %}
+
+    <h2><b>There are total of {{ totalPlayer }} Listeners!</b></h2>
+    <hr>
+
+    <table class="table table-striped" style="text-align: center; background-color: #3333;">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in range(looprange) %}
+                <tr>
+                {% if n + 1 == 1 %}
+                    <td><img src="/static/crown.png" style="height: 40px;"></td>
+                {% else %}
+                    <td><b>{{ n + 1 }}</b></td>
+                {% endif %}
+                {% if rows[n]['username'] ==  userinfo['username'] %}
+                    <td style="background-color: #595959;"><b>{{ rows[n]['username'] }}</b></td>
+                {% else %}
+                    <td><b>{{ rows[n]['username'] }}</b></td>
+                {% endif %}
+                <td><b>{{ rows[n]['score'] }}</b></td>
+                </tr>
+            {% endfor %}
+            {% if not topten %}
+                <tr>
+                <td><b>{{ index }}</b></td>
+                <td style="background-color: #595959;"><b>{{ userinfo['username'] }}</b></td>
+                <td><b>{{ userinfo['score'] }}</b></td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}

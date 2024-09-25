@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hello
+{% endblock %}
+
+{% block main %}
+
+    {% if score > 0 %}
+        <h3><b>Hello again, {{ username }}!</b></h3>
+        <p>Your score is {{ score }}.</p>
+
+    {% else %}
+        <h4><b>Now what?!</b></h4>
+        <p>You haven't played yet, {{ username }}</p>
+    {% endif %}
+
+    <div style="color: white; font-size: 20px;"><a href="/play">Listen UP!</a> What are you waiting for?</div>
+
+    <hr>
+    <footer>
+        <span><img src="/static/confused-travolta.gif" style="display: block; margin: auto;"></span>
+    </footer>
+
+{% endblock %}

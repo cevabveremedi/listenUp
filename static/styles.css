@@ -1,0 +1,298 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* Color for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-item {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+b {
+    color:white
+}
+
+p {
+    color: white;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+main table {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+#deleteMessage {
+    font-weight: bolder;
+    font-size: 25px;
+    background-color: rgba(210, 210, 210, 0.8);
+    color: black;
+    margin: auto, 15px;
+    padding: 0;
+}
+
+.modal { transform: translate3d(0, 0, 0); }
+
+body {
+    background-color: #07060d;
+    overflow-x: hidden;
+}
+
+.diff {
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.dropdown-items:hover {
+    background-color: grey;
+}
+
+td {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+td:before {
+    content: attr(title);
+}
+
+th {
+    color: white;
+}
+
+/*https://stackoverflow.com/questions/18342536/how-to-hide-the-bar-at-the-top-of-youtube-even-when-mouse-hovers-over-it*/
+.frame-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */  
+    padding-top: 25px;
+    width: 300%; /* enlarge beyond browser width */
+    left: -100%; /* center */
+}
+
+.frame-container iframe {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 1%; 
+    height: 1%;
+}
+
+.wrapper {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+#submitbutton {
+    width: 40px;
+    height: 40px;
+    background-color: #07060d;
+    border: solid 5px white;
+    border-radius: 25%;
+    margin-left: 10px;
+    font-size: 32px;
+    line-height: 2px;
+    padding-left: 3px;
+}
+
+#submitbutton:hover {
+    background-color: #00d588;
+}
+
+#refreshbutton:hover {
+    background-color: #00d588;
+}
+
+#refreshbutton {
+    width: 60px;
+    height: 60px;
+    background-color: #07060d;
+    border: solid 5px #a9a9a9;
+    border-radius: 25%;
+    font-family: Lucida Sans Unicode;
+    font-size: 48px;
+    line-height: 1px;
+    padding-left: 1px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.afterguess {
+    color: white;
+    font-size: 22px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: white;
+}
+
+.custom-toggler.navbar-toggler:hover {
+    border-color: #00d588;
+}
+
+.custom-toggler.navbar-toggler:hover .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,213,136, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler:hover {
+    background-color: #07060d;
+}
+
+.nav-link:hover .navlinks{
+    color: #00d588;
+}
+
+.nav-link.active .navlinks{
+    color: #00d588;
+    text-decoration: underline wavy;
+    text-underline-offset: 0.3em;
+}
+
+/* 
+ALL THESE for the history table... More info:
+
+(https://www.ihbc.org.uk/consultationsdb_new/media/css/jquery.dataTables.css)
+*/
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    *zoom: 1;
+    zoom: 1;
+}
+.dataTables_wrapper .dataTables_length {
+    float: left;
+    color: white;
+}
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    text-align: right;
+    color: white;
+}
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0.5em;
+}
+.dataTables_wrapper .dataTables_info {
+    clear: both;
+    float: left;
+    padding-top: 0.755em;
+    color: white;
+}
+.dataTables_wrapper .dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-top: 0.25em;
+}
+.page-link {
+    color: black;
+}
+
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+  right: 1em;
+  content: "\21E7";
+  margin-right: 3px;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  right: 0.5em;
+  content: "\21E9";
+  margin-right: 3px;
+}
+
+@media screen and (max-width: 767px) {
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+      float: none;
+      text-align: center;
+    }
+    .dataTables_wrapper .dataTables_paginate {
+      margin-top: 0.5em;
+    }
+}
+@media screen and (max-width: 640px) {
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+      float: none;
+      text-align: center;
+    }
+    .dataTables_wrapper .dataTables_filter {
+      margin-top: 0.5em;
+    }
+}

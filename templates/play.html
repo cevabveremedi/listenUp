@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+{% set active_page = "play" %}
+
+{% block title %}
+    Listening!
+{% endblock %}
+
+{% block main %}
+    <form action="/play" method="post">
+        <div class="flex">
+        <div class="form-group" style="margin-right: 3px;">
+            <select class="form-control" name="diff" id="diffSelection" style="padding-bottom: 10px;">
+                <option disabled="" selected="" value="">Difficulty</option>
+                <option value="easy">Easier</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Harder</option>
+            </select>
+        </div>
+        <button class="btn btn-light" type="submit" style="height: 40px;">Listen!</button>
+        </div>
+    </form>
+
+    {% if url is defined %}
+        <hr>
+        <div>
+            <form action="/check" method="post" id="inputform" style="margin:auto">
+                <div class="form-group row justify-content-center">
+                    <input style="width: 550px; border-radius: 25px;" id="uinput" name="uinput" type="text" class="form-control" autocomplete="off" autofocus>
+                    <input type="hidden" value="{{ subtitle }}" name="subtitle">
+                    <input type="hidden" value="{{ directURL }}" name="directURL">
+                    <input type="hidden" value="{{ pts }}" name="pts">
+                    <div style="margin-top: auto;">
+                        <button type="submit" class="btn btn-light" id="submitbutton"><b>&#10003;</b></button>
+                    </div>
+                  </div>
+            </form>
+            <button type="submit" class="btn btn-light" id="refreshbutton"><b>&#x21bb;</b></button>
+        </div>
+        <hr>
+        <div class="wrapper">
+            <div class="frame-container">
+                <iframe src="{{ url }}" id="iframeid" allow="autoplay"></iframe>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if checkyt is defined %}
+        <hr>
+        {% if ptsearned == 0 %}
+            <h3><b>"{{ originalcc }}"</b></h4>
+            <div style="display: grid;">
+                <div class="afterguess">was the correct answer...</div>
+                <div class="afterguess">Your guess: {{ userguess }}</div>
+            </div>
+        {% else %}
+            <h4><b>Nice, you got {{ ptsearned }} points</b></h4>
+        {% endif %}
+        <hr>
+        <div class="afterguess">Check out the <a href="{{ checkyt }}" target=”_blank”>source video</a>! </div>
+        <hr>
+        <div class="afterguess">Something Wrong?</div>
+        <form action="/report" method="post" id="reportvideo" style="margin-top: 5px;">
+            <div class="form-group row justify-content-center">
+                <input type="hidden" value="{{ checkyt }}" name="checkyt">
+                <button class="btn btn-danger" role="submit">Report this video</button>
+            </div>
+    {% endif %}
+
+    <script>
+        // I forgot to add the source and couldn't find the post again
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            var input = document.getElementById('diffSelection');
+            if (localStorage['diff']) { // if diff is set
+                input.value = localStorage['diff']; // set the value
+            }
+            input.onchange = function () {
+                localStorage['diff'] = this.value; // change localStorage on change
+            }
+        });
+
+        /* abandoned this idea, but it's still an option for later...
+
+        var form = document.getElementById("inputform");
+        form.addEventListener("submit", function() {
+            uinput = form.elements['uinput'].value;
+            if (ciEquals("{{ subtitle }}", uinput)) {
+
+            }
+        });
+        
+        //source: https://stackoverflow.com/a/2140723
+        function ciEquals(a, b) {
+            return typeof a === 'string' && typeof b === 'string'
+                ? a.localeCompare(b, undefined, { sensitivity: 'accent' }) === 0
+                : a === b;
+        }
+
+        */
+
+        var inputrefresh = document.getElementById("refreshbutton");
+        inputrefresh.addEventListener("click", function() {
+            document.getElementById('iframeid').src += '';
+        });
+
+
+
+    </script>
+{% endblock %}
