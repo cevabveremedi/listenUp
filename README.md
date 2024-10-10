@@ -1,6 +1,6 @@
 <hr>
 
-This project, created in 2021 as part of the CS50 course, was my first attempt at building a web app. While it may not be fully up to date, it reflects my early learning experiences. **Check out the video demo below** to see the website in action.
+This project, created in 2021 as part of the CS50 course, was my first attempt at building a web app. While it may not be fully up to date, it reflects my early learning experiences. **Check out the video demo below** to see the website in action (Note that I wasn't very comfortable speaking English back then :).
 
 <hr>
 
